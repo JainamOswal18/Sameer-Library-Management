@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-family-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-family-serif: var(--font-serif), ui-serif, Georgia, serif;
+
+  --color-accent: #C8922A;
+  --color-accent-light: #E8B86D;
+  --color-accent-dark: #9B6F1F;
+  --color-bg-main: #F7F2E8;
+  --color-bg-card: #FDFBF6;
+  --color-sidebar: #0D1117;
+  --color-sidebar-hover: #161D2B;
+  --color-border: #E3D9C8;
+  --color-border-strong: #C8B89A;
+  --color-text-primary: #1A1208;
+  --color-text-secondary: #6B5D4E;
+  --color-text-muted: #9B8B7A;
+  --color-text-on-dark: #F7F2E8;
+  --color-success: #3D7A58;
+  --color-danger: #9B4040;
+  --color-warning: #C87C2A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-sans);
+  background-color: #F7F2E8;
+  color: #1A1208;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C8B89A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9B8B7A; }
+
+*:focus-visible {
+  outline: 2px solid #C8922A;
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in { animation: fadeIn 0.35s ease both; }
+.animate-slide-in { animation: slideIn 0.3s ease both; }
+.animate-scale-in { animation: scaleIn 0.25s ease both; }
+
+.stagger-1 { animation-delay: 0.06s; }
+.stagger-2 { animation-delay: 0.12s; }
+.stagger-3 { animation-delay: 0.18s; }
+.stagger-4 { animation-delay: 0.24s; }
+.stagger-5 { animation-delay: 0.30s; }
+.stagger-6 { animation-delay: 0.36s; }
+
+.modal-backdrop {
+  background: rgba(13, 17, 23, 0.65);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.15s ease;
 }
