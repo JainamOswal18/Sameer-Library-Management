@@ -222,7 +222,7 @@ export default function LoginPage() {
           </p>
 
           <div className="mt-4 text-xs text-center" style={{ color: "#9B8B7A" }}>
-            Default admin: <span style={{ color: "#6B5D4E" }}>admin@library.com</span> /{" "}
+             Default admin: <span style={{ color: "#6B5D4E" }}>admin@library.com</span> /{" "}
             <span style={{ color: "#6B5D4E" }}>admin123</span>
           </div>
         </div>
